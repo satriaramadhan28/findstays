@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Tailwind v4: enable class-based dark mode (toggled on <html class="dark">) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Ultra-Luxury Boutique Palette (Gold / Champagne / Obsidian / Alabaster) */
+  --color-primary: #b35438; /* burnt terracotta copper */
+  --color-primary-dark: #8e3d25;
+  --color-primary-light: #fbeee9;
+  
+  --color-gold: #c5a059; /* royal champagne gold */
+  --color-gold-light: #e8d7ad;
+  --color-gold-dark: #967531;
+  --color-gold-glow: rgba(197, 160, 89, 0.22);
+  
+  --color-ink: #0e0d0c; /* rich obsidian noir */
+  --color-ink-card: #151311;
+  --color-ink-muted: #1e1b18;
+  
+  --color-paper: #faf7f2; /* cashmere alabaster */
+  --color-paper-card: #ffffff;
+  
+  --color-stone-400: #a3988c;
+  --color-stone-600: #6e6458;
+  --color-stone-800: #29241f;
+
+  --font-display: "Fraunces", "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+.dark body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* Luxury Glassmorphism & Borders */
+.luxury-glass {
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.dark .luxury-glass {
+  background: rgba(21, 19, 17, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(197, 160, 89, 0.18);
+}
+
+.luxury-card {
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12), 0 0 25px rgba(197, 160, 89, 0.12);
+  border-color: rgba(197, 160, 89, 0.4);
+}
+
+.dark .luxury-card:hover {
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(197, 160, 89, 0.18);
+  border-color: rgba(197, 160, 89, 0.45);
+}
+
+/* Luxury Gold Gradient Backgrounds */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #e8d7ad 0%, #c5a059 50%, #967531 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, rgba(232, 215, 173, 0.5), rgba(197, 160, 89, 0.2), rgba(150, 117, 49, 0.5)) 1;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.35);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 160, 89, 0.65);
+}
+
+/* Heart pop animation */
+@keyframes heartBounce {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.35) rotate(-8deg); }
+  65% { transform: scale(0.9) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.animate-heart-bounce {
+  animation: heartBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Luxury Ambient Shimmer */
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-gold {
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.1) 0%, rgba(232, 215, 173, 0.35) 50%, rgba(197, 160, 89, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: goldShimmer 4s infinite ease-in-out;
+}
+
+/* Delicate Noise Background Overlay for Rich Texture */
+.bg-grain {
+  background-image: radial-gradient(rgba(197, 160, 89, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
